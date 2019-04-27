@@ -1,0 +1,32 @@
+.pcc-link-preview {
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        display: block;
+        padding: 2%;
+        width: 100%;
+}
+
+.pcc-link-preview a {
+        text-decoration: none !important;
+        color: #111 !important;
+}
+
+.pcc-link-preview span.link {
+	font-style: italic;
+	font-size: 10pt;
+	color: #aaa;
+}
+
+.pcc-link-preview img {
+	height: 50vh;
+}
+
+.pcc-link-preview div.title {
+	font-size: 15pt;
+	font-weight: bold;
+}
+
+.pcc-link-preview p {
+	margin-top: 0;
+	font-size: 12pt;
+}
