@@ -34,15 +34,15 @@ function plataformacc_getPostByTelegramID( $args ) {
     $wp_xmlrpc_server->escape( $args );
 
     $msg_id  = $args[0];
-
-    $query = new WP_Query(array(
+    $query = get_posts(array(
 	'meta_key' => 'telegram_id',
 	'meta_value' => $msg_id
     ));
 
-    $post = array_shift($query->posts);
-    if ($post) return $post->ID;
-    return null;
+    $post = array_shift($query);
+    if (empty($post)) return null;
+    if (sizeof(get_post_meta($post->ID, 'telegram_id')) > 1) return -1; //wont update, multiple
+    return $post->ID;
 }
 
 function plataformacc_xmlrpc_methods( $methods ) {
