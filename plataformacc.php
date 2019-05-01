@@ -12,10 +12,13 @@ Version: 0.1
 Author URI: http://plataforma.cc/
  */
 
-function pcc_gallery_shortcode()
+function pcc_gallery_shortcode( $atts, $content )
 {
 	$images = get_attached_media( 'image' );
 	ob_start();
+	if ( $content ) {
+		echo "<p>$content</p>";
+	}
 	foreach ($images as $img) {
 		echo wp_get_attachment_image($img->ID, 'full');
 	}
